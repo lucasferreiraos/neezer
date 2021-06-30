@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'artist.apps.ArtistConfig',
     'rest_framework',
     'drf_yasg',
 ]
@@ -81,7 +82,7 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': os.environ.get('SQL_ENGINE'),
-        'NAME': os.environ.get('SQL_NAME'),
+        'NAME': os.environ.get('SQL_DATABASE'),
         'USER': os.environ.get('SQL_USER', 'user'),
         'PASSWORD': os.environ.get('SQL_PASSWORD', 'password'),
         'HOST': os.environ.get('SQL_HOST', 'localhost'),
