@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+
+  api:
+    build: ./app
+    container_name: neezer-api
+    entrypoint: .docker/entrypoint.sh
+
+    volumes:
+      - ./app/:/code
+    ports:
+      - 8000:8000
+      - 3000:3000
+    env_file: 
+      - ./app/.env
+    networks:
+      - app-network
+    depends_on:
+      - neezer-api-postgres-db
+    links:
+      - neezer-api-postgres-db
+
+  neezer-api-postgres-db:
+    image: postgres:alpine
+    container_name: neezer-api-postgres-db
+    tty: true
+    ports:
+      - 5432:5432
+    volumes: 
+      - ./app/.docker/dbdata:/var/lib/postgresql/data
+    environment: 
+      - POSTGRES_PASSWORD=123007
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=neezer_db
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+    
