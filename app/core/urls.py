@@ -36,6 +36,7 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('authentication/', include('authentication.endpoints', namespace='authentication')),
     path('artist/', include('artist.endpoints', namespace='artist')),
     re_path(
         r'swagger(?P<format>\.json|\.yaml)$',
