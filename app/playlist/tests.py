@@ -67,11 +67,15 @@ class ApiPlayListTest(TestCase):
             name='Playlist 02', owner=self.user,
         )
         self.playlist_02.tracks.set([self.track_04, self.track_06])
+        self.playlist_03 = Playlist.objects.create(
+            name='Guitarra instrumental', owner=self.user
+        )
+        self.playlist_03.tracks.set([self.track_02, self.track_05, self.track_06])
 
     def test_api_list_playlists(self):
         response = self.client.get('/playlist/playlist/')
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(len(response.data), 2)
+        self.assertEqual(len(response.data), 3)
 
     def test_api_create_playlist_without_songs(self):
         data = {
@@ -109,3 +113,13 @@ class ApiPlayListTest(TestCase):
     def test_api_delete_playlist(self):
         response = self.client.delete(f'/playlist/playlist/{self.playlist_01.id}/')
         self.assertEqual(response.status_code, 204)
+
+    def test_api_search_playlist_by_incomplete_term(self):
+        response = self.client.get('/playlist/playlist/?q=pla')
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(len(response.data), 2)
+
+    def test_api_search_playlist_by_name(self):
+        response = self.client.get('/playlist/playlist/?q=guitarra')
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(len(response.data), 1)
