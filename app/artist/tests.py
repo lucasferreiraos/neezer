@@ -69,12 +69,16 @@ class ApiArtistTest(TestCase):
 
     def test_api_update_artist(self):
         data = {'name': 'Edson Gomes', 'genre': 'REG'}
-        response = self.client.put(f'/artist/artist/{self.artist_02.id}/', data)
+        response = self.client.put(
+            f'/artist/artist/{self.artist_02.id}/', data
+        )
         self.assertEqual(response.status_code, 200)
 
     def test_api_partial_update_name_artist(self):
         data = {'name': 'Cavaleiros do Forró'}
-        response = self.client.patch(f'/artist/artist/{self.artist_02.id}/', data)
+        response = self.client.patch(
+            f'/artist/artist/{self.artist_02.id}/', data
+        )
         self.assertEqual(response.status_code, 200)
 
     def test_api_delete_artist(self):
@@ -99,6 +103,7 @@ class ApiArtistTest(TestCase):
         response = self.client.get('/artist/artist/?filter_by=forro')
         self.assertEqual(response.status_code, 200)
         self.assertEqual(len(response.data), 3)
+
 
 class ApiTrackTest(TestCase):
 
@@ -189,12 +194,16 @@ class ApiTrackTest(TestCase):
 
     def test_api_update_track(self):
         data = {'title': 'Awake from Darkness', 'artist': self.artist_01.id}
-        response = self.client.put(f'/artist/track/{self.track_06.id}/', data)
+        response = self.client.put(
+            f'/artist/track/{self.track_06.id}/', data
+        )
         self.assertEqual(response.status_code, 200)
 
     def test_api_partial_update_title_track(self):
         data = {'title': 'Tardes que Nunca Acabam'}
-        response = self.client.patch(f'/artist/track/{self.track_06.id}/', data)
+        response = self.client.patch(
+            f'/artist/track/{self.track_06.id}/', data
+        )
         self.assertEqual(response.status_code, 200)
 
     def test_api_delete_track(self):

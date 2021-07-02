@@ -1,4 +1,4 @@
-from rest_framework import mixins, permissions, viewsets
+from rest_framework import permissions, viewsets
 
 from .filterset import PlaylistFilterSet
 from .models import Playlist

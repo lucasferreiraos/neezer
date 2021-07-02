@@ -16,6 +16,7 @@ FILTER_GENRE_CHOICES = [
     ('instrumental', 'Instrumental')
 ]
 
+
 class ArtistFilterSet(SearchFilterSet):
     filter_by = ChoiceFilter(
         choices=FILTER_GENRE_CHOICES,

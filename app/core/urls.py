@@ -21,7 +21,7 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('auth/', include('authentication.endpoints', namespace='authentication')),
+    path('auth/', include('authentication.endpoints', namespace='auth')),
     path('artist/', include('artist.endpoints', namespace='artist')),
     path('playlist/', include('playlist.endpoints', namespace='playlist')),
     re_path(
