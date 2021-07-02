@@ -9,7 +9,7 @@ class Artist(models.Model):
         ('AXE', 'Axé'), ('PAG', 'Pagode'),
         ('SAM', 'Samba'), ('SER', 'Sertanejo'),
         ('FOR', 'Forró'), ('POP', 'Pop'),
-        ('ROC', 'Metal'), ('MET', 'Metal'),
+        ('ROC', 'Rock'), ('MET', 'Metal'),
         ('FUN', 'Funk'), ('REG', 'Reggae'),
         ('ERU', 'Erudito'), ('RAP', 'Rap'),
         ('MPB', 'Mpb'), ('ARR', 'Arrocha'),
@@ -33,6 +33,14 @@ class Track(models.Model):
     title = models.CharField(max_length=30, verbose_name=_('Título'))
     artist = models.ForeignKey(
         Artist, on_delete=models.CASCADE, verbose_name=_('Artista')
+    )
+    album = models.CharField(
+        max_length=30, verbose_name=_('Álbum'),
+        null=True, blank=True
+    )
+    release_year = models.CharField(
+        max_length=30, verbose_name=_('Ano de lançamento'),
+        null=True, blank=True
     )
 
     def __str__(self):

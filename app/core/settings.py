@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'playlist.apps.PlaylistConfig',
     'rest_framework',
     'drf_yasg',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
