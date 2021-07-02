@@ -13,6 +13,7 @@ class Artist(models.Model):
         ('FUN', 'Funk'), ('REG', 'Reggae'),
         ('ERU', 'Erudito'), ('RAP', 'Rap'),
         ('MPB', 'Mpb'), ('ARR', 'Arrocha'),
+        ('INS', 'Instrumental')
     ]
 
     id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
