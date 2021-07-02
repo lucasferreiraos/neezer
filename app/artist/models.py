@@ -18,7 +18,9 @@ class Artist(models.Model):
 
     id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
     name = models.CharField(max_length=20, verbose_name=_('Nome'))
-    genre = models.CharField(max_length=3, choices=GENRE_CHOICES, verbose_name=_('Gênero'))
+    genre = models.CharField(
+        max_length=3, choices=GENRE_CHOICES, verbose_name=_('Gênero')
+    )
 
     def __str__(self):
         return self.name

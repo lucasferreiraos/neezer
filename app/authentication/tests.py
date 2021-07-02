@@ -5,7 +5,7 @@ from rest_framework.test import APIClient
 
 
 class ApiAuthTest(TestCase):
-    
+
     def setUp(self):
         url_get_token = reverse('authentication:token_obtain_pair')
         username = 'lucas'
