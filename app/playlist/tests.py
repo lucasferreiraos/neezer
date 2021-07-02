@@ -7,7 +7,7 @@ from artist.models import Artist, Track
 from .models import Playlist
 
 
-class ApiPlayListTest(TestCase):
+class ApiPlaylistTest(TestCase):
 
     def setUp(self):
         url_get_token = reverse('authentication:token_obtain_pair')
