@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('authentication/', include('authentication.endpoints', namespace='authentication')),
     path('artist/', include('artist.endpoints', namespace='artist')),
+    path('playlist/', include('playlist.endpoints', namespace='playlist')),
     re_path(
         r'swagger(?P<format>\.json|\.yaml)$',
         schema_view.without_ui(cache_timeout=0),

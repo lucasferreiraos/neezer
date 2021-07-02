@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'artist.apps.ArtistConfig',
     'authentication.apps.AuthenticationConfig',
+    'playlist.apps.PlaylistConfig',
     'rest_framework',
     'drf_yasg',
 ]
