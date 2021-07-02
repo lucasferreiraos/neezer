@@ -90,11 +90,9 @@ class ApiTrackTest(TestCase):
         self.artist_01 = Artist.objects.create(
             name='Angra', genre='MET'
         )
-
         self.artist_02 = Artist.objects.create(
             name='Xand Avião', genre='FOR'
         )
-
         self.artist_03 = Artist.objects.create(
             name='Baco Exu do Blues', genre='RAP'
         )
@@ -102,23 +100,18 @@ class ApiTrackTest(TestCase):
         self.track_01 = Track.objects.create(
             title='Spread Your Fire', artist=self.artist_01
         )
-
         self.track_02 = Track.objects.create(
             title='Late Redemption', artist=self.artist_01
         )
-
         self.track_03 = Track.objects.create(
             title='Inquilina', artist=self.artist_02
         )
-
         self.track_04 = Track.objects.create(
             title='Baby me Atende', artist=self.artist_02
         )
-
         self.track_05 = Track.objects.create(
             title='Te Amo Disgraça', artist=self.artist_03
         )
-
         self.track_06 = Track.objects.create(
             title='Flamingos', artist=self.artist_03
         )
@@ -135,8 +128,8 @@ class ApiTrackTest(TestCase):
 
     def test_api_update_track(self):
         data = {'title': 'Awake from Darkness', 'artist': self.artist_01.id}
-        response = self.client.put(f'/artist/track/{self.track_06.id}', data)
-        self.assertEqual(response.status_code, 301)
+        response = self.client.put(f'/artist/track/{self.track_06.id}/', data)
+        self.assertEqual(response.status_code, 200)
 
     def test_api_partial_update_title_track(self):
         data = {'title': 'Tardes que Nunca Acabam'}
