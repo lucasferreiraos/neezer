@@ -1,6 +1,6 @@
 # Neezer
 
-Neezer (**N**ot Deezer) is a API to manage your favorite songs, artists and playlists.
+Neezer (**N**ot Deezer) is an API to manage your favorite songs, artists and playlists.
 
 ## Setup
 You need be in your system:
